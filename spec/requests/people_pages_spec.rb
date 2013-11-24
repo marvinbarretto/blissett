@@ -19,6 +19,7 @@ describe "People pages" do
     describe "with valid information" do
       before do
         fill_in "First name",    with: "Luther"
+        fill_in "Middle name",   with: "Loide"
         fill_in "Last name",     with: "Blissett"
         select '1958',           from: "person_date_of_birth_1i"
         select 'February',       from: "person_date_of_birth_2i"
