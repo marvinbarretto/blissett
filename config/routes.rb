@@ -1,6 +1,9 @@
 Blissett::Application.routes.draw do
   
   resources :people
+  
+  resources :places
+  resources :countries
 
   get "static_pages/home"
   get "static_pages/about"
