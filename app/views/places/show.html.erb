@@ -9,3 +9,9 @@
 
 <h2>Players associated with this place</h2>
 
+<% @people.each do |person| %>
+  <%= person.first_name %>
+  <%= person.last_name %>
+  <br />
+
+<% end %>
