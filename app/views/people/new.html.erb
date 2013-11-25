@@ -22,6 +22,9 @@
   <%= f.date_select :date_of_birth, start_year: 1850, include_blank: true %>
 
   <br> 
+
+  <%= f.label :place_id %>
+  <%= f.collection_select :place_id, @places, :id, :name %>
   
 
   <%= f.submit "Add a person", class: "btn btn-large btn-primary" %>
