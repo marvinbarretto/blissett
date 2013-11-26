@@ -1,0 +1,23 @@
+%h1
+  = @place.name
+  %em
+    = @place.country.name
+
+%p
+  Lon: 
+  = @place.lon
+  ,
+  Lat:
+  = @place.lat
+
+%hr
+
+%h2
+  = @people.count
+  Players associated with
+  = @place.name
+
+%ul
+- @people.each do |person|
+  %li
+    = link_to "" + person.first_name + " " + person.last_name, person
