@@ -3,35 +3,8 @@
 <%= form_for(@person) do |f| %>
 
   <fieldset>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-
-    <br> 
-
-    <%= f.label :middle_name %>
-    <%= f.text_field :middle_name %>
-
-    <br> 
-    
-
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-
-    <br> 
-    
-    <%= f.label :date_of_birth %>
-    <%= f.date_select :date_of_birth, start_year: 1850, include_blank: true %>
-
-    <br> 
-
-    <%= f.label :place_id %>
-    <%= f.collection_select :place_id, @places, :id, :name %>
-    
+    <%= render :partial => 'form', :locals => { :f => f } %>
     <br>
-
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>    
-
     <%= f.submit "Add a person", class: "btn btn-large btn-primary" %>
   </fieldset>
 
