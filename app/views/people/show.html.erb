@@ -1,5 +1,15 @@
 <h1><%= @person.first_name %> <%= @person.last_name %></h1>
 
+<% if @person.photo_url %>
+  <aside>
+    <%= image_tag @person.photo_url, {height: 100} %>
+    <% if @person.photo_caption %>
+      <cite><%= @person.photo_caption %></cite>
+    <% end %>
+  </aside>
+<% end %>
+
+
 <!-- TODO: Logic if there are middle names @person.middle_name etc.. -->
 
 <hr />
@@ -13,6 +23,7 @@
 -- lat --
 
 <hr />
+
 
 <h2>Roles</h2>
 Any roles?

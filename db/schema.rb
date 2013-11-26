@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126153917) do
+ActiveRecord::Schema.define(version: 20131126155804) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20131126153917) do
     t.string   "middle_name"
     t.integer  "place_id"
     t.text     "bio"
+    t.string   "height"
+    t.string   "photo_url"
+    t.string   "photo_caption"
   end
 
   create_table "places", force: true do |t|
@@ -49,6 +52,7 @@ ActiveRecord::Schema.define(version: 20131126153917) do
     t.integer  "goals"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_international"
   end
 
   create_table "role_types", force: true do |t|
