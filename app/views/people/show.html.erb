@@ -1,11 +1,23 @@
-<h2>Name</h2>
-<b>First name</b> <%= @person.first_name %> <br />
-<b>Middle name</b> <%= @person.middle_name %> <br />
-<b>Last name</b> <%= @person.last_name %><br />
+<h1><%= @person.first_name %> <%= @person.last_name %></h1>
+
+<!-- TODO: Logic if there are middle names @person.middle_name etc.. -->
+
 <hr />
+
+<h2>Details</h2>
 <b>DOB</b> <%= @person.date_of_birth %><br />
 <b>Place of birth</b> <%= @person.place_id %><br />
 
-
+<!--TODO: Map -->
 -- long --
 -- lat --
+
+<hr />
+
+<h2>Roles</h2>
+Any roles?
+
+<% if @person.bio %>
+  <h2>Bio</h2>
+  <div><%= @person.bio %></div>
+<% end %>

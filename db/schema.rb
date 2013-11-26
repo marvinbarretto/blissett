@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126022606) do
+ActiveRecord::Schema.define(version: 20131126153917) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20131126022606) do
     t.date     "date_of_birth"
     t.string   "middle_name"
     t.integer  "place_id"
+    t.text     "bio"
   end
 
   create_table "places", force: true do |t|

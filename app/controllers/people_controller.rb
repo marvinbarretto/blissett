@@ -22,7 +22,7 @@ class PeopleController < ApplicationController
   private
 
     def person_params
-      params.require(:person).permit(:first_name, :middle_name, :last_name, :date_of_birth, :place_id)
+      params.require(:person).permit(:first_name, :middle_name, :last_name, :date_of_birth, :place_id, :bio)
     end
 
 end
