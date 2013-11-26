@@ -16,9 +16,15 @@
 
 <h2>Details</h2>
 <b>DOB</b> <%= @person.date_of_birth %><br />
-<b>Place of birth</b> <%= @person.place_id %><br />
+<b>Place of birth</b> <%= @place.name %>, <%= @country.name %><br />
 
 <!--TODO: Map -->
+
+<%= debug @person %>
+
+
+
+
 -- long --
 -- lat --
 
@@ -27,6 +33,8 @@
 
 <h2>Roles</h2>
 Any roles?
+
+<hr />
 
 <% if @person.bio %>
   <h2>Bio</h2>
