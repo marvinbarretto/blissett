@@ -9,7 +9,7 @@ class CountriesController < ApplicationController
     
     @places = Place.where(:country_id => params[:id])
 
-    @people = Person.where(:place_id => params[:id])
+    @people = Person.where(:place_id => @places)
 
 
   end

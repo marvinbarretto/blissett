@@ -7,7 +7,8 @@
 %hr
 
 %h2
-  Hornets associated with
+  = pluralize(@people.count, 'hornet')
+  associated with
   = @country.name
 %ul
 - @people.each do |person|
@@ -18,7 +19,8 @@
 
 
 %h2
-  Places in
+  = pluralize(@country.places.count, 'place')
+  in
   = @country.name
 %ul  
 - @country.places.each do |place|
