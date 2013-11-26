@@ -1,0 +1,17 @@
+<h2>Place</h2>
+<b>Name</b> <%= @place.name %> <br />
+<b>Country</b> <%= @place.country.name %><br />
+<hr />
+<b>Lon</b> <%= @place.lon %><br />
+<b>Lat</b> <%= @place.lat %><br />
+
+<hr />
+
+<h2>Players associated with this place</h2>
+
+<% @people.each do |person| %>
+  <%= person.first_name %>
+  <%= person.last_name %>
+  <br />
+
+<% end %>

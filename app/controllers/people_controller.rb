@@ -2,6 +2,7 @@ class PeopleController < ApplicationController
 
   def new
     @person = Person.new
+    @places = Place.find(:all, :order => :name)
   end
 
   def show
@@ -21,7 +22,7 @@ class PeopleController < ApplicationController
   private
 
     def person_params
-      params.require(:person).permit(:first_name, :last_name, :date_of_birth)
+      params.require(:person).permit(:first_name, :middle_name, :last_name, :date_of_birth, :place_id)
     end
 
 end
