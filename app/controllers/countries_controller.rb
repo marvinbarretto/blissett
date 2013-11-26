@@ -4,6 +4,11 @@ class CountriesController < ApplicationController
     @country = Country.new
   end
 
+  def edit
+    @country = Country.find(params[:id])
+  end
+
+
   def show
     @country = Country.find(params[:id])
     
@@ -11,7 +16,7 @@ class CountriesController < ApplicationController
 
     @people = Person.where(:place_id => @places)
 
-
+    
   end
 
   def create
@@ -24,10 +29,22 @@ class CountriesController < ApplicationController
     end
   end
 
+  def update
+    @country = Country.find(params[:id])
+    if @country.update_attributes(country_params)
+      flash[:success] = "success"
+      redirect_to @country
+    else
+      flash[:error] = "error"
+      render 'edit'
+    end
+  end
+
+
   private
 
     def country_params
-      params.require(:country).permit(:name)
+      params.require(:country).permit(:name, :lat, :lon)
     end
 
 end

@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126155804) do
+ActiveRecord::Schema.define(version: 20131126211930) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "lat",        precision: 10, scale: 6
+    t.decimal  "lon",        precision: 10, scale: 6
   end
 
   create_table "people", force: true do |t|

@@ -3,8 +3,13 @@ class PlacesController < ApplicationController
   def new
     @place = Place.new
     @countries = Country.find(:all, :order => :name)
-
   end
+
+  def edit
+    @place = Place.find(params[:id])
+    @countries = Country.find(:all, :order => :name)
+  end
+
 
   def show
     @place = Place.find(params[:id])
@@ -20,6 +25,17 @@ class PlacesController < ApplicationController
       render 'new'
     end
   end
+
+  def update
+    @place = Place.find(params[:id])
+    if @place.update_attributes(place_params)
+      flash[:success] = "success"
+      redirect_to @place
+    else
+      flash[:error] = "error"
+      render 'edit'
+    end
+  end 
 
   private
 
