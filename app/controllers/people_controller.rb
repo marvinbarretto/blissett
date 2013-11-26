@@ -13,6 +13,8 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+    @place  = Place.find(@person.place_id)
+    @country = @place.country    
   end
 
   def create
