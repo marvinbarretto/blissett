@@ -7,11 +7,12 @@
 
 <hr />
 
-<h2>Players associated with this place</h2>
-
+<h2>Players associated with <%= @place.name %></h2>
+<ul>
 <% @people.each do |person| %>
-  <%= person.first_name %>
-  <%= person.last_name %>
-  <br />
-
+  <li>
+    <%= person.first_name %>
+    <%= person.last_name %>
+  </li>
 <% end %>
+</ul>
