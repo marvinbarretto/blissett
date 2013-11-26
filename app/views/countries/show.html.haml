@@ -1,0 +1,34 @@
+%h1
+  = @country.name
+
+/ TODO: Add flags dynamically from wikimedia, maybe through a yaml  
+/ %img{:src => 'http://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg'}
+
+%hr
+
+%h2
+  Hornets associated with
+  = @country.name
+%ul
+- @people.each do |person|
+  %li
+    = link_to "" + person.first_name + " " + person.last_name, person
+
+%hr
+
+
+%h2
+  Places in
+  = @country.name
+%ul  
+- @country.places.each do |place|
+  %li 
+    = link_to "" + place.name, place
+
+
+
+
+
+%hr
+= debug @country
+%hr
