@@ -6,11 +6,18 @@
 %h1
   = @country.name
 
+%span
+  - if @country.name != "England"
+    = distance watford_coords,[@country.lat, @country.lon]
+    miles away from Vicarage Road
+  
 / TODO: Add flags dynamically from wikimedia, maybe through a yaml  
 / %img{:src => 'http://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg'}
 
 - if @country.lat
   = map(:center => {:latlng => [@country.lat, @country.lon], :zoom => 5 })
+
+
 
 
 %hr

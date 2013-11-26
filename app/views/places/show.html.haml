@@ -22,11 +22,11 @@
 / TODO: Distance from Watford?
 / maybe use https://developers.google.com/maps/documentation/distancematrix/
 
-/ WATFORD: 17.99273099915159, -76.7920088977553
 
 = map(:center => {:latlng => [@place.lat, @place.lon], :zoom => 5 }, :markers => [{ :latlng => [@place.lat, @place.lon] }])
 
-
+= distance watford_coords,[@place.lat, @place.lon]
+miles away from Vicarage Road
 
 / TODO: Zoom out massively if foreign/ zoom in if local
 
