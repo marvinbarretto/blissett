@@ -5,6 +5,12 @@ class PeopleController < ApplicationController
     @places = Place.find(:all, :order => :name)
   end
 
+  def edit
+    @person = Person.find(params[:id])
+    @places = Place.find(:all, :order => :name)
+  end
+
+
   def show
     @person = Person.find(params[:id])
   end
@@ -15,9 +21,24 @@ class PeopleController < ApplicationController
       flash[:success] = "success"
       redirect_to @person
     else
+      flash[:error] = "error"
       render 'new'
     end
   end
+
+  def update
+    @person = Person.find(params[:id])
+    if @person.update_attributes(person_params)
+      flash[:success] = "success"
+      redirect_to @person
+    else
+      flash[:error] = "error"
+      render 'edit'
+    end
+  end
+
+
+  
 
   private
 

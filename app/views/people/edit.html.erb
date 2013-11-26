@@ -1,4 +1,4 @@
-<h1>New person</h1>
+<h1>Edit person</h1>
 
 <%= form_for(@person) do |f| %>
 
@@ -13,7 +13,6 @@
 
     <br> 
     
-
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
 
@@ -26,11 +25,13 @@
 
     <%= f.label :place_id %>
     <%= f.collection_select :place_id, @places, :id, :name %>
-    
+
     <br>
 
     <%= f.label :bio %>
     <%= f.text_area :bio %>    
+        
+    <br>
 
     <%= f.submit "Add a person", class: "btn btn-large btn-primary" %>
   </fieldset>
