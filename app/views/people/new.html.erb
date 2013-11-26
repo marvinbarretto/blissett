@@ -2,30 +2,37 @@
 
 <%= form_for(@person) do |f| %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <fieldset>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
 
-  <br> 
+    <br> 
 
-  <%= f.label :middle_name %>
-  <%= f.text_field :middle_name %>
+    <%= f.label :middle_name %>
+    <%= f.text_field :middle_name %>
 
-  <br> 
-  
+    <br> 
+    
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
 
-  <br> 
-  
-  <%= f.label :date_of_birth %>
-  <%= f.date_select :date_of_birth, start_year: 1850, include_blank: true %>
+    <br> 
+    
+    <%= f.label :date_of_birth %>
+    <%= f.date_select :date_of_birth, start_year: 1850, include_blank: true %>
 
-  <br> 
+    <br> 
 
-  <%= f.label :place_id %>
-  <%= f.collection_select :place_id, @places, :id, :name %>
-  
+    <%= f.label :place_id %>
+    <%= f.collection_select :place_id, @places, :id, :name %>
+    
+    <br>
 
-  <%= f.submit "Add a person", class: "btn btn-large btn-primary" %>
+    <%= f.submit "Add a person", class: "btn btn-large btn-primary" %>
+  </fieldset>
+
 <% end %>
+
+
+

@@ -1,0 +1,25 @@
+
+<%= form_for(@role) do |f| %>
+  
+  <h1>New role for ...</h1>
+  <%= f.collection_select :person_id, @people, :id, :last_name %>
+
+  <p>as a...
+
+  <%= f.collection_select :role_type_id, @role_types, :id, :name %>
+  
+  <br> 
+  
+
+  <%= f.label :from_date %>
+  <%= f.date_select :from_date, start_year: 1850, include_blank: true %>
+
+  <br> 
+
+  <%= f.label :to_date %>
+  <%= f.date_select :to_date,   start_year: 1850, include_blank: true %>
+
+  <br> 
+
+  <%= f.submit "Add a role", class: "btn btn-large btn-primary" %>
+<% end %>
