@@ -1,0 +1,33 @@
+<h1>
+  Edit <%= @place.name %>
+</h1>
+
+<%= form_for(@place) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <br> 
+
+  <%= f.label :lat %>
+  <%= f.text_field :lat %>
+
+  <br> 
+
+  <%= f.label :lon %>
+  <%= f.text_field :lon %>
+
+  <br> 
+
+  <%= f.label :country_id, "Country" %>
+  <%= f.collection_select :country_id, @countries, :id, :name %>
+
+  <br>
+
+  <%= f.submit "Edit this place", class: "btn btn-large btn-primary" %>
+<% end %>
+
+
+
+
+

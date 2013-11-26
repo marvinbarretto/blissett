@@ -1,14 +1,35 @@
+/ TODO: Move CSS
+
+:css
+  #map { width: 400px; height: 400px; }
+
+
 %h1
   = @place.name
   %em
-    = @place.country.name
+    = link_to "" + @place.country.name, @place.country
+
+
 
 %p
-  Lon: 
-  = @place.lon
-  ,
+  
   Lat:
   = @place.lat
+  ,
+  Lon: 
+  = @place.lon
+
+/ TODO: Distance from Watford?
+/ maybe use https://developers.google.com/maps/documentation/distancematrix/
+
+/ WATFORD: 17.99273099915159, -76.7920088977553
+
+= map(:center => {:latlng => [@place.lat, @place.lon], :zoom => 5 }, :markers => [{ :latlng => [@place.lat, @place.lon] }])
+
+
+
+/ TODO: Zoom out massively if foreign/ zoom in if local
+
 
 %hr
 
