@@ -1,0 +1,24 @@
+%h1 Index of people
+
+%table
+  %thead
+    %tr
+      %td id
+      %td Name
+      %td Place
+      %td Bio
+
+  - @people.each do |person|
+    %tr
+      %td 
+        = person.id
+      %td 
+        = link_to "" + person.first_name + " " + person.last_name, person
+      %td
+        = person.place_id
+      %td
+        = person.bio
+
+%hr
+
+= debug(@people)
