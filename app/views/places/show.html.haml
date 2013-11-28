@@ -11,13 +11,15 @@
 
 
 
-%p
-  
-  Lat:
-  = @place.lat
-  ,
-  Lon: 
-  = @place.lon
+
+
+-if @place.lat && @place.lon
+  %p
+    Lat:
+    = @place.lat
+    ,
+    Lon: 
+    = @place.lon
 
 / TODO: Distance from Watford?
 / maybe use https://developers.google.com/maps/documentation/distancematrix/
@@ -25,8 +27,9 @@
 
 = map(:center => {:latlng => [@place.lat, @place.lon], :zoom => 5 }, :markers => [{ :latlng => [@place.lat, @place.lon] }])
 
-= distance watford_coords,[@place.lat, @place.lon]
-miles away from Vicarage Road
+- if @place.lat && @country.name != "England"
+  = distance watford_coords,[@place.lat, @place.lon]
+  miles away from Vicarage Road
 
 / TODO: Zoom out massively if foreign/ zoom in if local
 
