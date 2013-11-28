@@ -5,9 +5,6 @@ Blissett::Application.routes.draw do
   resources :places
   resources :countries
 
-  resources :roles
-  resources :role_types
-  
   get "static_pages/home"
   get "static_pages/about"
   

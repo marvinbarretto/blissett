@@ -7,7 +7,7 @@
   = @country.name
 
 %span
-  - if @country.name != "England"
+  - if @country.lat && @country.name != "England"
     = distance watford_coords,[@country.lat, @country.lon]
     miles away from Vicarage Road
   
