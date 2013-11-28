@@ -1,6 +1,6 @@
 <h1><%= @person.first_name %> <%= @person.last_name %></h1>
 
-<% if @person.photo_url %>
+<% if !@person.photo_url.empty? %>
   <aside>
     <%= image_tag @person.photo_url, {height: 100} %>
     <% if @person.photo_caption %>
@@ -20,18 +20,14 @@
 
 <!--TODO: Map -->
 
-<%= distance watford_coords,[@place.lat, @place.lon] %>
-miles away from Vicarage Road
-
+<% if @place.lat && @country.name != "England" %>
+  <%= distance watford_coords,[@place.lat, @place.lon] %>
+  miles away from Vicarage Road
+<% end %>
 
 
 <hr />
 
-
-<h2>Roles</h2>
-Any roles?
-
-<hr />
 
 <% if @person.bio %>
   <h2>Bio</h2>
