@@ -14,6 +14,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @people = Person.where(:place_id => params[:id])
+    @country = @place.country
   end
 
   def create

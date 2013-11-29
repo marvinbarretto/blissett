@@ -1,0 +1,25 @@
+%h1 Club index
+
+%table
+  %thead
+    %tr
+      %td{:style => 'padding: 8px;'} id
+      %td Name
+      %td Place
+      %td Country
+
+
+  - @clubs.each do |club|
+    %tr
+      %td{ :style => 'background-color:' + club.colour_hex + ";" }
+        = club.id
+      %td
+        = link_to "" + club.name, club
+      %td
+        = club.place.name
+      %td
+        = club.country.name
+
+%hr
+
+= debug(@club)

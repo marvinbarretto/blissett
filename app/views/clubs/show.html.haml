@@ -1,0 +1,17 @@
+- if !@club.colour_hex
+  %h1.club_name
+    = @club.name
+- else
+  %h1.club_name{ :style => 'border-color:' + @club.colour_hex + ";" }
+    = @club.name
+
+- if @club.country.name != "England"
+  from
+  = @club.country.name
+
+
+/ TODO: Count
+%h2
+  Played Watford X times
+
+= debug @club
