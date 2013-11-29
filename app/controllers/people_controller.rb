@@ -8,6 +8,7 @@ class PeopleController < ApplicationController
   def new
     @person = Person.new
     @places = Place.find(:all, :order => :name)
+    @countries = Country.find(:all, :order => :name)
   end
 
   def edit
@@ -19,7 +20,7 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find(params[:id])
     @place  = Place.find(@person.place_id)
-    @country = @place.country    
+    @country = @place.country
   end
 
   def create

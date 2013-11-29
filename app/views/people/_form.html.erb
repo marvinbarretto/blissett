@@ -28,9 +28,8 @@
 <%= f.date_select :date_of_birth, start_year: 1850, include_blank: true %>
 
 <br> 
-
 <%= f.label :place_id %>
-<%= f.collection_select :place_id, @places, :id, :name %>
+<%= f.grouped_collection_select :place_id, @countries, :places, :name, :id, :name, {} %>
 
 <br>
 
