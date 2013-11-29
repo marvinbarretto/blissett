@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129152215) do
+ActiveRecord::Schema.define(version: 20131129173218) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20131129152215) do
     t.string   "height"
     t.string   "photo_url"
     t.string   "photo_caption"
+    t.string   "watford_legends_url"
   end
 
   create_table "places", force: true do |t|
@@ -66,6 +67,19 @@ ActiveRecord::Schema.define(version: 20131129152215) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_international"
+  end
+
+  create_table "role_types", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "roles", force: true do |t|
+    t.date     "from_date"
+    t.date     "to_date"
+    t.integer  "person_id"
+    t.integer  "role_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "seasons", force: true do |t|
