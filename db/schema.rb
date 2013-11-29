@@ -68,19 +68,6 @@ ActiveRecord::Schema.define(version: 20131129152215) do
     t.boolean  "is_international"
   end
 
-  create_table "role_types", force: true do |t|
-    t.string "name"
-  end
-
-  create_table "roles", force: true do |t|
-    t.date     "from_date"
-    t.date     "to_date"
-    t.integer  "person_id"
-    t.integer  "role_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "seasons", force: true do |t|
     t.integer  "year_begin"
     t.integer  "year_end"
