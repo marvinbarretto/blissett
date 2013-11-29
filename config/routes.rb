@@ -1,10 +1,17 @@
 Blissett::Application.routes.draw do
   
+  get "clubs/new"
+  get "clubs/edit"
+  get "clubs/create"
+  get "clubs/destroy"
+  get "clubs/update"
   resources :people
   
   resources :places
   resources :countries
 
+  resources :clubs
+  
   get "static_pages/home"
   get "static_pages/about"
   
