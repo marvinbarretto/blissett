@@ -1,0 +1,27 @@
+%h1 New season
+
+= form_for(@season) do |f|
+
+  / = f.label :name
+  / = f.text_field :name
+
+
+  / TODO: ONly show year field
+  / TODO: Needs dropdown
+
+  %br 
+
+  = f.label :year_begin
+  = f.select :year_begin, 1850..(Time.zone.now.year)
+
+  %br 
+
+  = f.label :year_end
+  = f.select :year_end, 1850..(Time.zone.now.year)
+
+  / = f.label :country_id
+  / = f.collection_select :country_id, @countries, :id, :name
+
+  %br
+
+  = f.submit "Add a season", class: "btn btn-large btn-primary"
