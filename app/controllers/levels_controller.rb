@@ -1,4 +1,8 @@
 class LevelsController < ApplicationController
+  def index
+    @levels = Level.find(:all)
+  end
+
   def new
     @level = Level.new
   end
