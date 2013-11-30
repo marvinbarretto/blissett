@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129152215) do
+ActiveRecord::Schema.define(version: 20131130024747) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -24,12 +24,29 @@ ActiveRecord::Schema.define(version: 20131129152215) do
     t.text     "bio"
   end
 
+  create_table "competitions", force: true do |t|
+    t.string   "name"
+    t.boolean  "is_league"
+    t.boolean  "is_national"
+    t.boolean  "is_cup"
+    t.boolean  "is_european"
+    t.boolean  "is_friendly"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "countries", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "lat",        precision: 10, scale: 6
     t.decimal  "lon",        precision: 10, scale: 6
+  end
+
+  create_table "levels", force: true do |t|
+    t.integer  "tier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "people", force: true do |t|
@@ -44,6 +61,7 @@ ActiveRecord::Schema.define(version: 20131129152215) do
     t.string   "height"
     t.string   "photo_url"
     t.string   "photo_caption"
+    t.string   "watford_legends_url"
   end
 
   create_table "places", force: true do |t|
@@ -66,6 +84,19 @@ ActiveRecord::Schema.define(version: 20131129152215) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_international"
+  end
+
+  create_table "role_types", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "roles", force: true do |t|
+    t.date     "from_date"
+    t.date     "to_date"
+    t.integer  "person_id"
+    t.integer  "role_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "seasons", force: true do |t|

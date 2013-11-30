@@ -1,0 +1,12 @@
+%h1 Levels#new
+%p Find me in app/views/levels/new.html.haml
+
+
+= form_for(@level) do |f|
+
+  = f.label :tier
+  = f.text_field :tier 
+
+  %br
+
+  = f.submit "Add a tier", class: "btn btn-large btn-primary"
