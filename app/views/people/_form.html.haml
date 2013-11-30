@@ -1,0 +1,42 @@
+= f.label :first_name 
+= f.text_field :first_name
+
+%br
+
+= f.label :middle_name
+= f.text_field :middle_name
+
+%br
+
+= f.label :last_name
+= f.text_field :last_name
+
+%hr
+
+= f.label :photo_url
+= f.text_field :photo_url
+
+%br
+
+= f.label :photo_caption
+= f.text_field :photo_caption
+
+%hr
+
+= f.label :date_of_birth
+= f.date_select :date_of_birth, start_year: 1850, include_blank: true
+
+%br
+= f.label :place_id
+= f.grouped_collection_select :place_id, @countries, :places, :name, :id, :name, {}
+
+%br
+
+= f.label :watford_legends_url, "watford legends url?"
+= f.text_field :watford_legends_url
+
+
+%br
+
+= f.label :bio
+= f.text_area :bio   
