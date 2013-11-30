@@ -1,0 +1,34 @@
+%h1 All competitions
+
+%table
+  %thead
+    %tr
+      %td id
+      %td Name
+      %td National?
+      %td European?
+      %td League?
+      %td Cup?
+      %td Friendly?
+
+
+  - @competitions.each do |competition|
+    %tr
+      %td 
+        = competition.id
+      %td
+        = competition.name
+      %td
+        = competition.is_national
+      %td
+        = competition.is_european
+      %td
+        = competition.is_league
+      %td
+        = competition.is_cup
+      %td
+        = competition.is_friendly
+
+%hr
+
+= debug(@competitions)
