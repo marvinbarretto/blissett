@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131129173218) do
+ActiveRecord::Schema.define(version: 20131130024747) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -24,12 +24,29 @@ ActiveRecord::Schema.define(version: 20131129173218) do
     t.text     "bio"
   end
 
+  create_table "competitions", force: true do |t|
+    t.string   "name"
+    t.boolean  "is_league"
+    t.boolean  "is_national"
+    t.boolean  "is_cup"
+    t.boolean  "is_european"
+    t.boolean  "is_friendly"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "countries", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "lat",        precision: 10, scale: 6
     t.decimal  "lon",        precision: 10, scale: 6
+  end
+
+  create_table "levels", force: true do |t|
+    t.integer  "tier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "people", force: true do |t|

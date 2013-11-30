@@ -1,0 +1,28 @@
+%h1 Competitions#new
+%p Find me in app/views/competitions/new.html.haml
+
+= form_for(@competition) do |f|
+
+  = f.label :name
+  = f.text_field :name 
+
+  %fieldset
+
+    = f.label :is_league
+    = f.check_box :is_league 
+    %br
+    = f.label :is_national
+    = f.check_box :is_national 
+    %br
+    = f.label :is_cup
+    = f.check_box :is_cup 
+    %br
+    = f.label :is_european
+    = f.check_box :is_european 
+    %br
+    = f.label :is_friendly
+    = f.check_box :is_friendly 
+
+  %br
+
+  = f.submit "Add a competition", class: "btn btn-large btn-primary"
