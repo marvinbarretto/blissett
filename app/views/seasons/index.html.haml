@@ -1,0 +1,19 @@
+%h1 All seasons
+
+%table
+  %thead
+    %tr
+      %td id
+      %td Season
+
+  - @seasons.each do |season|
+    %tr
+      %td 
+        = season.id
+      %td
+        = season.year_begin
+        \-
+        = season.year_end
+%hr
+
+= debug(@seasons)
