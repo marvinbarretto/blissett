@@ -1,0 +1,28 @@
+%h1 All places
+
+%table
+  %thead
+    %tr
+      %td id
+      %td Name
+      %td Country
+      %td Co-ords
+
+  - @places.each do |place|
+    %tr
+      %td 
+        = place.id
+      %td 
+        = link_to "" + place.name, place
+      %td
+        = place.country.name
+      %td
+        - if place.lat
+          = place.lat
+          ,
+          = place.lon
+        - else
+          None
+%hr
+
+= debug(@places)

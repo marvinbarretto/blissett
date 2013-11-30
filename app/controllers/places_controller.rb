@@ -1,5 +1,9 @@
 class PlacesController < ApplicationController
 
+  def index
+    @places = Place.find(:all)
+  end
+
   def new
     @place = Place.new
     @countries = Country.find(:all, :order => :name)
