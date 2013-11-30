@@ -1,12 +1,19 @@
-%h1 Index of people
+%h1 All people
 
 %table
   %thead
     %tr
       %td id
       %td Name
-      %td Place
+      %td birthday
+
+      %td From
       %td Bio
+
+      %td Height
+      %td photo
+      %td caption
+      %td watford legends url
 
   - @people.each do |person|
     %tr
@@ -15,9 +22,21 @@
       %td 
         = link_to "" + person.first_name + " " + person.last_name, person
       %td
-        = person.place_id
+        = person.date_of_birth
+      %td
+        = person.place.name
       %td
         = person.bio
+      %td
+        = person.height
+      %td
+        = person.photo_url
+      %td
+        = person.photo_caption
+      %td
+        = person.watford_legends_url
+
+
 
 %hr
 
