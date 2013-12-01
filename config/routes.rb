@@ -1,11 +1,5 @@
 Blissett::Application.routes.draw do
   
-  get "competitions/new"
-  get "competitions/edit"
-  get "competitions/create"
-  get "competitions/show"
-  get "levels/new"
-  get "levels/create"
   resources :people
   
   resources :places
@@ -15,6 +9,9 @@ Blissett::Application.routes.draw do
   resources :seasons
   resources :levels
   resources :competitions
+  
+  resources :stints
+  resources :roles
   
   get "static_pages/home"
   get "static_pages/about"

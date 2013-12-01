@@ -1,0 +1,37 @@
+%h1 All stints
+
+%table
+  %thead
+    %tr
+      %td 
+      %td Person
+      %td Role
+      %td Joined
+      %td Left
+      %td Fee
+      %td From
+      %td To
+
+  - @stints.each do |stint|
+    %tr
+      %td 
+        = link_to "edit", edit_stint_path(stint)
+        ,
+        = link_to "show", stint_path(stint)
+      %td
+        = link_to stint.person.first_name + " " + stint.person.last_name, stint.person       
+      %td 
+        = link_to stint.role.name, stint.role
+      %td
+        = stint.join_date
+      %td
+        = stint.leave_date
+      %td
+        = stint.fee
+      %td
+        / = stint.brought_from
+      %td
+        / = stint.sold_to
+%hr
+
+= debug(@stints)

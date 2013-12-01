@@ -18,9 +18,7 @@
 
 - if @country.lat
   
-  - a = map.tileLayer(cmUrl, {styleId: 46561, attribution: cmAttr})
-
-  = map(:center => {:latlng => [@country.lat, @country.lon], :zoom => 6 }, :markers => [ { :layers => [a, b]  } ])
+  / = map(:center => {:latlng => [@country.lat, @country.lon], :zoom => 6 }, :markers => [ { :layers => [a, b]  } ])
 
   / = map(:center => {:latlng => [@country.lat, @country.lat], :zoom => 10 }, :markers => [ { :latlng => [51.52238797921441, -0.08366235665359283], :popup => "Hello!" } ] )
   / = places_array
