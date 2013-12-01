@@ -4,5 +4,5 @@ class Club < ActiveRecord::Base
 
   belongs_to :place
   has_one :country, through: :place
-
+  
 end

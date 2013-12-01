@@ -7,12 +7,22 @@
   = @person.first_name
   = @person.last_name
 
-- if @stints.count > 1
+%fieldset
 
-  - @stints.each do |s|
-    = s.role.name
-    - if s.id != @stints.count
-      and
+  %b DOB
+  = @person.date_of_birth
+  %br
+  %b Place of birth
+  = @place.name
+  ,
+  = @country.name
+
+  - if @stints.count > 1
+
+    - @stints.each do |s|
+      = s.role.name
+      - if s.id != @stints.count
+        and
       
 
 %br
@@ -54,14 +64,7 @@
   %hr
 
 
-%h2 Details
-%b DOB
-= @person.date_of_birth
-%br
-%b Place of birth
-= @place.name
-,
-= @country.name
+
 
 %br
 / TODO: Map

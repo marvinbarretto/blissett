@@ -6,15 +6,30 @@
   
   = link_to @stint.role.name, @stint.role
 
-
   for
+
   = link_to @stint.person.first_name + " " + @stint.person.last_name, @stint.person
-
-
-
   
+%fieldset
+
+  (
+
+  = @stint.join_date
+
+  \-
+
+  = @stint.leave_date
+  )
+
+  %br
+  
+  Sold to 
+  = link_to @club_sold_to.name, club_path(@club_sold_to)
+  for
+
+  = number_to_currency(@stint.sold_fee, :precision => 0, :unit => "&pound;")
 %hr
 
-= debug @stint.person.stints.count
+= debug @stint.person.stints
 
 /= debug @stint

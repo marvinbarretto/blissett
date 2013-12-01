@@ -7,11 +7,12 @@ class CreateStints < ActiveRecord::Migration
 
       t.integer     :join_date
       t.integer     :leave_date
-      t.integer     :fee
       
       t.integer     :bought_from
+      t.integer     :bought_fee
       t.integer     :sold_to
-
+      t.integer     :sold_fee
+      
       t.timestamps
 
     end

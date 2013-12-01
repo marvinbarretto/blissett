@@ -20,16 +20,24 @@
 
   %br 
 
-  = f.label :fee
-  = f.text_field :fee
+  %fieldset
 
-  %br 
 
-  = f.label :bought_from
-  = f.collection_select :bought_from, @clubs, :id, :name, include_blank: true
+    = f.label :bought_from
+    = f.collection_select :bought_from, @clubs, :id, :name, include_blank: true
 
-  = f.label :sold_to
-  = f.collection_select :sold_to, @clubs, :id, :name, include_blank: true 
+    = f.label :bought_fee
+    = f.text_field :bought_fee
+
+  
+  %fieldset
+
+    = f.label :sold_to
+    = f.collection_select :sold_to, @clubs, :id, :name, include_blank: true 
+
+    = f.label :sold_fee
+    = f.text_field :sold_fee
+
 
   %br
 

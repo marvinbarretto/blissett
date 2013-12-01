@@ -15,6 +15,10 @@ class StintsController < ApplicationController
 
   def show
     @stint = Stint.find(params[:id])
+    @club_sold_to = Club.find(@stint.sold_to)
+
+
+
   end
 
 
@@ -49,6 +53,6 @@ class StintsController < ApplicationController
   private
 
     def stint_params
-      params.require(:stint).permit(:person_id, :role_id, :join_date, :leave_date, :fee, :bought_from, :sold_to)
+      params.require(:stint).permit(:person_id, :role_id, :join_date, :leave_date, :bought_from, :bought_fee, :sold_to, :sold_fee)
     end  
 end
