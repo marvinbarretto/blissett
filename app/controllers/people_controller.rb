@@ -14,6 +14,8 @@ class PeopleController < ApplicationController
   def edit
     @person = Person.find(params[:id])
     @places = Place.find(:all, :order => :name)
+    @countries = Country.find(:all, :order => :name)
+
   end
 
 
@@ -51,7 +53,7 @@ class PeopleController < ApplicationController
   private
 
     def person_params
-      params.require(:person).permit(:first_name, :middle_name, :last_name, :date_of_birth, :place_id, :bio, :photo_url, :photo_caption)
+      params.require(:person).permit(:first_name, :middle_name, :last_name, :date_of_birth, :place_id, :bio, :photo_url, :photo_caption, :watford_legends_url)
     end
 
 end
