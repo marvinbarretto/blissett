@@ -1,4 +1,9 @@
 class CompetitionsController < ApplicationController
+  def index
+    @competitions = Competition.find(:all)
+  end
+
+
   def new
     @competition = Competition.new
   end
@@ -23,6 +28,6 @@ class CompetitionsController < ApplicationController
   private
 
     def competition_params
-      params.require(:competition).permit(:name)
+      params.require(:competition).permit(:name, :is_league, :is_national, :is_cup, :is_european, :is_friendly)
     end  
 end

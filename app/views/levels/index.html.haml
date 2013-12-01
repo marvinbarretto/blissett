@@ -1,0 +1,15 @@
+%h1 All levels
+
+%table
+  %thead
+    %tr
+      %td tier
+
+  - @levels.each do |level|
+    %tr
+      %td 
+        = level.tier
+
+%hr
+
+= debug(@levels)

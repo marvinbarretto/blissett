@@ -1,14 +1,42 @@
 .header
-  = link_to "New Place", new_place_path
-  | 
-  = link_to "New Country", new_country_path
-  | 
-  = link_to "New Person", new_person_path
-  | 
-  = link_to "New Club", new_club_path
-  | 
-  = link_to "New Season", new_season_path
-  ||| 
-  = link_to "New competition", new_competition_path
-  | 
-  = link_to "New level", new_level_path
+  (
+  = link_to "Places", places_path
+  |
+  = link_to "New", new_place_path
+  )
+
+  (
+  = link_to "Countries", countries_path
+  |
+  = link_to "New", new_country_path
+  )
+
+  (
+  = link_to "People", people_path
+  |
+  = link_to "New", new_person_path
+  )
+
+  (
+  = link_to "Clubs", clubs_path
+  |
+  = link_to "New", new_club_path
+  )
+
+  (
+  = link_to "Seasons", seasons_path
+  |
+  = link_to "New", new_season_path
+  )      
+
+  (
+  = link_to "Comps", competitions_path
+  |
+  = link_to "New", new_competition_path
+  )    
+
+  (
+  = link_to "Levels", levels_path
+  |
+  = link_to "New", new_level_path
+  )

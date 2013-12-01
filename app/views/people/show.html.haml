@@ -1,0 +1,51 @@
+/ TODO: Move CSS
+
+:css
+  #map { width: 200px; height: 200px; }
+
+%h1
+  = @person.first_name
+  = @person.last_name
+
+
+- if !@person.photo_url.empty?
+  %aside
+    = image_tag @person.photo_url, {height: 100}
+    - if @person.photo_caption
+      %cite= @person.photo_caption
+- else
+  No photo
+
+/ TODO: Logic if there are middle names @person.middle_name etc..
+
+%hr
+
+%h2 Details
+%b DOB
+= @person.date_of_birth
+%br
+%b Place of birth
+= @place.name
+,
+= @country.name
+
+%br
+/ TODO: Map
+- if @place.lat && @country.name != "England"
+  = distance watford_coords,[@place.lat, @place.lon]
+  miles away from Vicarage Road
+
+  = map(:center => {:latlng => [@place.lat, @place.lon], :zoom => 6 }, :markers => [{ :latlng => [@place.lat, @place.lon] }])
+
+%br
+
+- if !@person.watford_legends_url.blank?
+  = link_to "" + @person.last_name + " legends article", @person.watford_legends_url
+
+%hr/
+- if !@person.bio.blank?
+  %h2 Bio
+  %div
+    = @person.bio
+
+= debug @person

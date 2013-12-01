@@ -1,0 +1,25 @@
+%h1 All countries
+
+%table
+  %thead
+    %tr
+      %td id
+      %td Name
+      %td Co-ords
+
+  - @countries.each do |country|
+    %tr
+      %td 
+        = country.id
+      %td 
+        = link_to "" + country.name, country
+      %td
+        - if country.lat
+          = country.lat
+          ,
+          = country.lon
+        - else
+          None
+%hr
+
+= debug(@countries)

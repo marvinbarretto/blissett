@@ -1,5 +1,9 @@
 class CountriesController < ApplicationController
 
+  def index
+    @countries = Country.find(:all)
+  end
+
   def new
     @country = Country.new
   end

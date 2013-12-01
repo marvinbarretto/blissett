@@ -14,13 +14,31 @@
 / TODO: Add flags dynamically from wikimedia, maybe through a yaml  
 / %img{:src => 'http://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Jamaica.svg'}
 
+/= debug @country
+
 - if @country.lat
-  = map(:center => {:latlng => [@country.lat, @country.lon], :zoom => 5 })
+  
+  - a = map.tileLayer(cmUrl, {styleId: 46561, attribution: cmAttr})
+
+  = map(:center => {:latlng => [@country.lat, @country.lon], :zoom => 6 }, :markers => [ { :layers => [a, b]  } ])
+
+  / = map(:center => {:latlng => [@country.lat, @country.lat], :zoom => 10 }, :markers => [ { :latlng => [51.52238797921441, -0.08366235665359283], :popup => "Hello!" } ] )
+  / = places_array
+
+
+
+%hr
+%hr
+
 
 
 
 
 %hr
+
+  - @places.each do |place|
+    = place.name
+
 
 %h2
   = pluralize(@people.count, 'hornet')
