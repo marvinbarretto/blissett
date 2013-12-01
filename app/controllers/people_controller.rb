@@ -23,6 +23,8 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @place  = Place.find(@person.place_id)
     @country = @place.country
+    @stints = @person.stints
+    
   end
 
   def create

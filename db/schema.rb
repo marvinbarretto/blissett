@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131130024747) do
+ActiveRecord::Schema.define(version: 20131201184308) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -73,10 +73,6 @@ ActiveRecord::Schema.define(version: 20131130024747) do
     t.integer  "country_id"
   end
 
-  create_table "player_types", force: true do |t|
-    t.string "name"
-  end
-
   create_table "players", force: true do |t|
     t.integer  "appearances"
     t.integer  "substitute_appearances"
@@ -86,15 +82,8 @@ ActiveRecord::Schema.define(version: 20131130024747) do
     t.boolean  "is_international"
   end
 
-  create_table "role_types", force: true do |t|
-    t.string "name"
-  end
-
   create_table "roles", force: true do |t|
-    t.date     "from_date"
-    t.date     "to_date"
-    t.integer  "person_id"
-    t.integer  "role_type_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -102,6 +91,18 @@ ActiveRecord::Schema.define(version: 20131130024747) do
   create_table "seasons", force: true do |t|
     t.integer  "year_begin"
     t.integer  "year_end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stints", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "role_id"
+    t.integer  "join_date"
+    t.integer  "leave_date"
+    t.integer  "fee"
+    t.integer  "bought_from"
+    t.integer  "sold_to"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

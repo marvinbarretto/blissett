@@ -6,4 +6,5 @@ class Person < ActiveRecord::Base
   belongs_to :place
   has_one :country, through: :place
   
+  has_many :stints
 end

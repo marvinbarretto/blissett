@@ -1,0 +1,17 @@
+%h1 All roles
+
+%table
+  %thead
+    %tr
+      %td id
+      %td Name
+
+  - @roles.each do |role|
+    %tr
+      %td 
+        = role.id
+      %td 
+        = link_to role.name, role
+%hr
+
+= debug(@roles)

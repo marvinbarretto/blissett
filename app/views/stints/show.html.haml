@@ -1,0 +1,20 @@
+%h1
+  - if @stint.person.stints.count > 1
+    First
+
+  Stint as a
+  
+  = link_to @stint.role.name, @stint.role
+
+
+  for
+  = link_to @stint.person.first_name + " " + @stint.person.last_name, @stint.person
+
+
+
+  
+%hr
+
+= debug @stint.person.stints.count
+
+/= debug @stint

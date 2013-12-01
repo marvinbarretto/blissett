@@ -1,0 +1,36 @@
+%h1 Stints#new
+
+= form_for(@stint) do |f|
+
+  = f.label :person_id
+  = f.collection_select :person_id, @people, :id, :last_name  
+
+  = f.label :role_id
+  = f.collection_select :role_id, @roles, :id, :name
+
+  %br 
+
+  = f.label :join_date
+  = f.select :join_date, 1950..(Time.zone.now.year)
+
+  %br 
+
+  = f.label :leave_date
+  = f.select :leave_date, 1950..(Time.zone.now.year)
+
+  %br 
+
+  = f.label :fee
+  = f.text_field :fee
+
+  %br 
+
+  = f.label :bought_from
+  = f.collection_select :bought_from, @clubs, :id, :name, include_blank: true
+
+  = f.label :sold_to
+  = f.collection_select :sold_to, @clubs, :id, :name, include_blank: true 
+
+  %br
+
+  = f.submit "Add a stint", class: "btn btn-large btn-primary"

@@ -7,18 +7,52 @@
   = @person.first_name
   = @person.last_name
 
+- if @stints.count > 1
+
+  - @stints.each do |s|
+    = s.role.name
+    - if s.id != @stints.count
+      and
+      
+
+%br
 
 - if !@person.photo_url.empty?
   %aside
     = image_tag @person.photo_url, {height: 100}
     - if @person.photo_caption
       %cite= @person.photo_caption
-- else
-  No photo
 
 / TODO: Logic if there are middle names @person.middle_name etc..
 
 %hr
+
+  %h2 Stints
+
+  - if @stints
+    - @stints.each do |stint|
+      %fieldset
+        %h3
+
+          = stint.join_date
+          \-
+          = stint.leave_date
+          as 
+          = stint.role.name
+          
+
+        - if stint.fee
+          = stint.fee 
+        - else
+          No fee
+
+        %br
+        = stint.bought_from if stint.bought_from
+        %br
+        = stint.sold_to if stint.sold_to
+
+  %hr
+
 
 %h2 Details
 %b DOB
