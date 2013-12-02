@@ -17,8 +17,6 @@ class StintsController < ApplicationController
     @stint = Stint.find(params[:id])
     @club_sold_to = Club.find(@stint.sold_to)
 
-
-
   end
 
 
@@ -48,6 +46,9 @@ class StintsController < ApplicationController
 
   def index
     @stints = Stint.find(:all)
+    @clubs = Club.find(:all)
+    
+
   end
 
   private

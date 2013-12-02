@@ -26,6 +26,11 @@ class ClubsController < ApplicationController
 
   def show
     @club = Club.find(params[:id])
+
+    @people = Person.find(:all)
+
+    @people = Person.where(:place_id => @places)
+
   end
 
 
