@@ -4,4 +4,19 @@
   = @season.year_end
   season
 
+%fieldset
+  %b
+    competing in
+    = link_to @competition, competition_path(@season.competition_id)
+    ( Level
+    = @season.level_id
+    )
+
+  %hr
+
+  against
+
+
+
+
 = debug @season

@@ -6,6 +6,10 @@ class CreateSeasons < ActiveRecord::Migration
       t.integer :year_begin
       t.integer :year_end
 
+      # League comp
+      t.integer :competition_id
+      t.integer :level_id
+
       t.timestamps
     end
   end

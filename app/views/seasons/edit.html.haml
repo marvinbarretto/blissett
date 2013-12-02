@@ -1,0 +1,26 @@
+%h1 Edit season
+
+= form_for(@season) do |f|
+
+  %fieldset
+
+    = f.label :year_begin
+    = f.select :year_begin, 1850..(Time.zone.now.year)
+
+    %br 
+
+    = f.label :year_end
+    = f.select :year_end, 1850..(Time.zone.now.year)
+
+
+  %fieldset
+
+    = f.label :competition_id
+    = f.collection_select :competition_id, @competitions, :id, :name
+
+    = f.label :level_id
+    = f.collection_select :level_id, @levels, :id, :tier
+
+  %br
+
+  = f.submit "Edit this season", class: "btn btn-large btn-primary"
