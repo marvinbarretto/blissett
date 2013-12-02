@@ -91,6 +91,8 @@ ActiveRecord::Schema.define(version: 20131201184308) do
   create_table "seasons", force: true do |t|
     t.integer  "year_begin"
     t.integer  "year_end"
+    t.integer  "competition_id"
+    t.integer  "level_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,15 +5,27 @@
     %tr
       %td id
       %td Season
+      %td comp
+      %td level
 
   - @seasons.each do |season|
     %tr
       %td 
         = season.id
       %td
-        = season.year_begin
-        \-
-        = season.year_end
+        = link_to season.year_begin.to_s + "-" + season.year_end.to_s, season_path(season)
+      %td
+        / = season.competition_id
+
+        = link_to @competitions[1].name, competition_path(season.competition_id.to_i)
+
+      %td
+        = season.level_id
+
+        
 %hr
+
+        
+
 
 = debug(@seasons)

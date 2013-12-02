@@ -47,7 +47,7 @@ class StintsController < ApplicationController
   def index
     @stints = Stint.find(:all)
     @clubs = Club.find(:all)
-    
+    @roles = Role.find(:all)
 
   end
 

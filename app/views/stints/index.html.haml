@@ -22,15 +22,15 @@
       %td
         = link_to stint.person.first_name + " " + stint.person.last_name, stint.person       
       %td 
-        = link_to stint.role.name, stint.role
+        = link_to @roles[stint.role_id.to_i - 1].name, role_path(@roles[ stint.role_id.to_i - 1])
       %td
         = stint.join_date
       %td
         = stint.leave_date
       %td
-        = stint.bought_from
+        = link_to @clubs[stint.bought_from.to_i - 1].name, club_path(@clubs[ stint.bought_from.to_i - 1])        
       %td
-        = stint.bought_fee
+        = number_to_currency(stint.bought_fee, :precision => 0, :unit => "&pound;")
       %td
         = link_to @clubs[ stint.sold_to - 1].name, club_path(@clubs[ stint.sold_to - 1])
 
