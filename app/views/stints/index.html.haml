@@ -8,9 +8,10 @@
       %td Role
       %td Joined
       %td Left
-      %td Fee
       %td From
+      %td Fee
       %td To
+      %td Fee
 
   - @stints.each do |stint|
     %tr
@@ -27,11 +28,17 @@
       %td
         = stint.leave_date
       %td
-        = stint.fee
+        = stint.bought_from
       %td
-        / = stint.brought_from
+        = stint.bought_fee
       %td
-        / = stint.sold_to
+        = link_to @clubs[ stint.sold_to - 1].name, club_path(@clubs[ stint.sold_to - 1])
+
+        / = @clubs[stint.sold_to].name
+
+      %td
+        = number_to_currency(stint.sold_fee, :precision => 0, :unit => "&pound;")
+
 %hr
 
 = debug(@stints)

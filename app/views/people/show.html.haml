@@ -51,10 +51,18 @@
           = stint.role.name
           
 
-        - if stint.fee
-          = stint.fee 
+        - if stint.bought_fee
+          = stint.bought_fee 
         - else
-          No fee
+          No fee in
+
+
+
+        - if stint.sold_fee
+          = stint.sold_fee 
+        - else
+          No fee out
+          
 
         %br
         = stint.bought_from if stint.bought_from
