@@ -11,8 +11,12 @@
 
   - @clubs.each do |club|
     %tr
-      %td{ :style => 'background-color:' + club.colour_hex + ";" }
-        = club.id
+      -if club.colour_hex
+        %td{ :style => 'background-color:' + club.colour_hex + ";" }
+          = club.id
+      - else
+        %td
+          = club.id
       %td
         = link_to "" + club.name, club
       %td
