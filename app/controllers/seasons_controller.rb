@@ -51,6 +51,7 @@ class SeasonsController < ApplicationController
 
     @competition = Competition.find(@season.competition_id).name
 
+    @matches = Match.where(:season_id => @season)
 
   end
 
