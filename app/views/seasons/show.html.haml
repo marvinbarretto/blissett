@@ -14,7 +14,53 @@
 
   %hr
 
-  against
+
+%h2
+  Matches this season
+
+%table
+  %tr
+    %td Date
+    %td Competition
+    %td Opposition
+    %td Season
+    %td Attendance
+    %td is home?
+    %td home_goals
+    %td away_goals
+
+  - @matches.each do |match|
+    
+    / TODO: Split by competition
+
+    %tr
+      %td
+        = match.date
+      %td
+        = @competition
+      %td
+        = Club.find(match.opposition_id).name
+      %td
+        = match.season_id
+      %td
+        = match.attendance
+      %td
+        = match.is_home
+      %td
+        = match.home_goals
+      %td
+        = match.away_goals
+
+
+      / t.date :date
+      / t.integer :competition_id
+      / t.integer :opposition_id
+      / t.integer :season_id
+      
+      / t.integer :attendance
+      / t.boolean :is_home
+      / t.integer :home_goals
+      / t.integer :away_goals
 
 
 

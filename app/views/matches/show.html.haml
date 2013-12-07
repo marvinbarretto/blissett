@@ -1,0 +1,30 @@
+%h1
+  - if @match.is_home
+    Watford
+    = @match.home_goals
+    \-
+    = @opposition.name
+    = @match.away_goals
+  - else
+    = @opposition.name
+    = @match.home_goals
+    \-
+    = @match.away_goals
+    Watford
+%p
+  in the
+  = @season.year_begin
+  \-
+  = @season.year_end
+  season, on
+  = @match.date
+  , in
+  = @competition.name
+  in front of
+  = @match.attendance
+  people
+
+
+%hr
+
+= debug @match

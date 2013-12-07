@@ -1,5 +1,5 @@
 Blissett::Application.routes.draw do
-  
+
   resources :people
   
   resources :places
@@ -12,6 +12,8 @@ Blissett::Application.routes.draw do
   
   resources :stints
   resources :roles
+
+  resources :matches
   
   get "static_pages/home"
   get "static_pages/about"

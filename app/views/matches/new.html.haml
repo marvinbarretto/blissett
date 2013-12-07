@@ -1,0 +1,69 @@
+%h1 New match
+
+= form_for(@match) do |f|
+  
+  = f.label :competition_id, "in the"
+  = f.collection_select :competition_id, @competitions, :id, :name
+
+
+  = f.label :season_id, "Season beginning"
+  = f.collection_select :season_id, @seasons, :id, :year_begin
+
+  %hr
+
+  %fieldset
+
+    = f.label :date, start_year: 1990
+    = f.date_select :date, :start_year => 1990
+
+    %br
+
+    = f.label :opposition_id
+    = f.collection_select :opposition_id, @clubs, :id, :name
+
+    %br
+
+    = f.label :attendance
+    = f.text_field :attendance
+
+    %br
+
+    = f.label :is_home
+    = f.check_box :is_home
+
+    %br
+
+    Score: 
+
+    = f.text_field :home_goals, :placeholder => "Home goals"
+
+    \-
+
+    = f.text_field :away_goals, :placeholder => "Away goals"
+
+
+
+
+  / = f.label :name
+  / = f.text_field :name 
+
+  / %fieldset
+
+  /   = f.label :is_league
+  /   = f.check_box :is_league 
+  /   %br
+  /   = f.label :is_national
+  /   = f.check_box :is_national 
+  /   %br
+  /   = f.label :is_cup
+  /   = f.check_box :is_cup 
+  /   %br
+  /   = f.label :is_european
+  /   = f.check_box :is_european 
+  /   %br
+  /   = f.label :is_friendly
+  /   = f.check_box :is_friendly 
+
+  %br
+
+  = f.submit "Add a match", class: "btn btn-large btn-primary"
