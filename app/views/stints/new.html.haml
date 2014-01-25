@@ -22,11 +22,20 @@
 
   %fieldset
 
+    = f.label :is_permanent, "Permanent signing?"
+    = f.check_box :is_permanent, {checked: true}
 
-    = f.label :bought_from
-    = f.collection_select :bought_from, @clubs, :id, :name, include_blank: true
+    %br
 
-    = f.label :bought_fee
+    = f.label :is_one_of_our_own
+    = f.check_box :is_one_of_our_own
+
+    or 
+
+    = f.label :from, "from"
+    = f.collection_select :from, @clubs, :id, :name, include_blank: true
+
+    = f.label :bought_fee, "fee?"
     = f.text_field :bought_fee
 
   

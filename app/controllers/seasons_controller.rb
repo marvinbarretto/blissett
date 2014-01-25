@@ -51,6 +51,11 @@ class SeasonsController < ApplicationController
 
     @matches = Match.where(:season_id => @season)
 
+
+
+    @players_available = Stint.find(:all, :conditions => ["join_date <= ? AND leave_date >= ?", @season.year_begin, @season.year_end])
+
+
   end
 
 

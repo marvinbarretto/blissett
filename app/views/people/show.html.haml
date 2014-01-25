@@ -25,16 +25,6 @@
   - else
     No country given
 
-
-
-  - if @stints.count > 1
-
-    - @stints.each do |s|
-      = s.role.name
-      - if s.id != @stints.count
-        and
-      
-
 %br
 
 - if !@person.photo_url.empty?
@@ -59,23 +49,14 @@
         = stint.leave_date
         as 
         = stint.role.name
-        
+        - if !stint.is_permanent
+          on loan
 
-      - if stint.bought_fee
-        = stint.bought_fee 
-      - else
-        No fee in
-
-
-
-      - if stint.sold_fee
-        = stint.sold_fee 
-      - else
-        No fee out
-        
+        = stint.bought_fee if stint.bought_fee
+        = stint.sold_fee if stint.sold_fee
 
       %br
-      = stint.bought_from if stint.bought_from
+      = stint.from if stint.from
       %br
       = stint.sold_to if stint.sold_to
 

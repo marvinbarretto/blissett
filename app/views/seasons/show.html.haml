@@ -12,14 +12,40 @@
     )
 
 
-  %hr
+
+%br
+
+
+%small
+  %em
+    = link_to "[New person]", new_person_path
+
+
+
+
+%h3 players available:
+
+%ul
+- @players_available.each do |player|
+  / = debug player
+  - @player_name = Person.find(player.person_id).first_name + " " + Person.find(player.person_id).last_name
+  %li
+    
+    / = link_to @player_name, person_path(player.person_id)
+    = @player_name
+
+
+%hr
+%h3
+  ADMIN: Declare who competed this season
+
+
+
+%hr
 
 
 %h2
   Players this season
-  %small
-    %em
-      = link_to "[New person]", new_person_path
 
 
 %hr

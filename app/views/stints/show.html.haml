@@ -1,6 +1,4 @@
 %h1
-  - if @stint.person.stints.count > 1
-    First
 
   Stint as a
   
@@ -16,18 +14,27 @@
 
   = @stint.join_date
 
-  \-
+  - if @stint.join_date != @stint.leave_date
+    \-
 
-  = @stint.leave_date
+    = @stint.leave_date
   )
 
   %br
   
-  Sold to 
-  = link_to @club_sold_to.name, club_path(@club_sold_to)
-  for
+  - if @club_sold_to
+    Sold to 
+    = link_to @club_sold_to.name, club_path(@club_sold_to)
 
-  = number_to_currency(@stint.sold_fee, :precision => 0, :unit => "&pound;")
+    - if @stint.sold_fee
+      for
+      = number_to_currency(@stint.sold_fee, :precision => 0, :unit => "&pound;")
+
+
+  - if !@stint.is_permanent?
+    on loan
+
+
 %hr
 
 = debug @stint.person.stints

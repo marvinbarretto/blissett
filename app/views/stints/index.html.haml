@@ -28,11 +28,12 @@
       %td
         = stint.leave_date
       %td
-        = link_to @clubs[stint.bought_from.to_i - 1].name, club_path(@clubs[ stint.bought_from.to_i - 1])        
+        - if stint.from
+          = link_to @clubs[stint.from.to_i - 1].name, club_path(@clubs[ stint.from.to_i - 1])        
       %td
         = number_to_currency(stint.bought_fee, :precision => 0, :unit => "&pound;")
       %td
-        = link_to @clubs[ stint.sold_to - 1].name, club_path(@clubs[ stint.sold_to - 1])
+        = link_to @clubs[ stint.sold_to - 1].name, club_path(@clubs[ stint.sold_to - 1]) if stint.sold_to
 
         / = @clubs[stint.sold_to].name
 

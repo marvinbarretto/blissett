@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.find(:all, :order => :last_name)
-
+    
   end
 
   def new
