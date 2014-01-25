@@ -1,6 +1,13 @@
 Blissett::Application.routes.draw do
 
-  resources :people
+  resources :people do
+    collection do
+      post :import
+      get :autocomplete
+    end
+  end
+
+
   
   resources :places
   resources :countries
