@@ -21,8 +21,8 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
-    @place  = Place.find(@person.place_id)
-    @country = @place.country
+    @place  = Place.find(@person.place_id) if @person.place
+    @country = @place.country if @person.country
     @stints = @person.stints
     
   end

@@ -49,8 +49,6 @@ class SeasonsController < ApplicationController
   def show
     @season = Season.find(params[:id])
 
-    @competition = Competition.find(@season.competition_id).name
-
     @matches = Match.where(:season_id => @season)
 
   end
@@ -63,6 +61,6 @@ class SeasonsController < ApplicationController
   private
 
     def season_params
-      params.require(:season).permit(:year_begin, :year_end, :competition_id, :level_id)
+      params.require(:season).permit(:year_begin, :year_end, :level_id)
     end
 end

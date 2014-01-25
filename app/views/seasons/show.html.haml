@@ -7,13 +7,22 @@
 %fieldset
   %b
     competing in
-    = link_to @competition, competition_path(@season.competition_id)
     ( Level
     = @season.level_id
     )
 
+
   %hr
 
+
+%h2
+  Players this season
+  %small
+    %em
+      = link_to "[New person]", new_person_path
+
+
+%hr
 
 %h2
   Matches this season
@@ -21,7 +30,7 @@
 %table
   %tr
     %td Date
-    %td Competition
+    %td Level
     %td Opposition
     %td Season
     %td Attendance
@@ -37,7 +46,7 @@
       %td
         = match.date
       %td
-        = @competition
+        = @season.level_id
       %td
         = Club.find(match.opposition_id).name
       %td

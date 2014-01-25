@@ -13,9 +13,19 @@
   = @person.date_of_birth
   %br
   %b Place of birth
-  = @place.name
+  
+  - if @place
+    = @place.name
+  - else
+    No place given
   ,
-  = @country.name
+
+  - if @country
+    = @country.name
+  - else
+    No country given
+
+
 
   - if @stints.count > 1
 
@@ -35,39 +45,39 @@
 
 / TODO: Logic if there are middle names @person.middle_name etc..
 
-%hr
 
+
+- if @stints && !@stints.empty?
+  %hr
   %h2 Stints
+  - @stints.each do |stint|
+    %fieldset
+      %h3
 
-  - if @stints
-    - @stints.each do |stint|
-      %fieldset
-        %h3
+        = stint.join_date
+        \-
+        = stint.leave_date
+        as 
+        = stint.role.name
+        
 
-          = stint.join_date
-          \-
-          = stint.leave_date
-          as 
-          = stint.role.name
-          
-
-        - if stint.bought_fee
-          = stint.bought_fee 
-        - else
-          No fee in
+      - if stint.bought_fee
+        = stint.bought_fee 
+      - else
+        No fee in
 
 
 
-        - if stint.sold_fee
-          = stint.sold_fee 
-        - else
-          No fee out
-          
+      - if stint.sold_fee
+        = stint.sold_fee 
+      - else
+        No fee out
+        
 
-        %br
-        = stint.bought_from if stint.bought_from
-        %br
-        = stint.sold_to if stint.sold_to
+      %br
+      = stint.bought_from if stint.bought_from
+      %br
+      = stint.sold_to if stint.sold_to
 
   %hr
 
@@ -76,7 +86,7 @@
 
 %br
 / TODO: Map
-- if @place.lat && @country.name != "England"
+- if @place && @place.lat && @country && @country.name != "England"
   = distance watford_coords,[@place.lat, @place.lon]
   miles away from Vicarage Road
 
