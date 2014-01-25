@@ -1,5 +1,17 @@
 %h1 All people
 
+%hr
+
+= form_tag people_path, class: "form-inline", method: :get do
+  .input-group.input-group-lg
+    - if params[:query].present?
+      .input-group-btn
+        = link_to "clear", people_path, class: "btn btn-default"
+    = text_field_tag :query, params[:query], class: "form-control", id: "person_search", autocomplete: "off"
+    .input-group-btn
+      = submit_tag "Search", class: "btn btn-primary"
+
+
 %table{border: "1"}
   %thead
     %tr
@@ -19,12 +31,13 @@
       %td watford legends url
 
   - @people.each do |person|
+
+    
     %tr
       %td 
         = person.id
       %td 
-        = link_to "" + person.first_name + " " + person.last_name, person
-      
+        = link_to "" + person.full_name, person
       %td
         - person.stints.each do |stint| 
           %p

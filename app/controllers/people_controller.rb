@@ -1,8 +1,14 @@
 class PeopleController < ApplicationController
 
   def index
-    @people = Person.find(:all, :order => :last_name)
+    if params[:query].present?
+      @results = Person.search(params[:query], page: params[:page])
+    else
+      @results = Person.all.page params[:page]
+    end
     
+    @people = Person.find(:all, :order => :last_name)
+
   end
 
   def new
@@ -47,6 +53,15 @@ class PeopleController < ApplicationController
       flash[:error] = "error"
       render 'edit'
     end
+  end
+
+  def autocomplete
+    # render json: Person.search(params[:query], partial: true, autocomplete: true, limit: 10).map(&:first_name)
+
+    
+    render json: Person.search(params[:query], partial: true, autocomplete: true, limit: 10).map(&:full_name)
+
+
   end
 
 
